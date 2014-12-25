@@ -5,9 +5,10 @@ module.exports = function (dir, ext, print){
 	fs.readdir(dir, function(err, flist){
 		if(err) return print(err);
 		for(var i=0; i<flist.length; i++){
-			var fn = flist[i];
-			if(path.extname(fn) == '.' + ext)
+			var fn = String(flist[i]);
+			if(path.extname(fn) == '.' + ext) {
 				print(fn);
+			}
 		}
-	})
+	});
 }
